@@ -1,13 +1,11 @@
-output: main.o ArrayList.o
-	g++ main.o ArrayList.o -o main
+output: main.o Matrix.o
+	g++ main.o Matrix.o -o main
 
 main.o: main.cpp
 	g++ -c main.cpp
 
-ArrayList.o: ArrayList.cpp
-	g++ -c ArrayList.cpp
+Matrix.o: Matrix.cpp
+	g++ -c Matrix.cpp
 
 clean:
-	rm *.o output;
-
-
+	rm *.o output
