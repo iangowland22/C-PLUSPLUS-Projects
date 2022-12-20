@@ -1,147 +1,46 @@
-/*
- Author: Ian Gowland
- Class: IT180 
- ULID: igowlan
-*/
-
 #include <iostream>
-#include "ArrayList.h"
+#include "Matrix.h"
 
 using namespace std;
 
 int main(){
 
-    ArrayList test;
+    Matrix matrix1;
+    cout<<"First matrix: "<<endl;
+    matrix1.printArray();
 
-    /*
-     Add several integers to the ArrayList instance.
-     Display the correct format of the toString function and
-     the number of elements in the ArrayList object.
-     Display the capacity to prove the correct, varying capacity 
-     based on the number of elements in the array of the ArrayList.
-    */
-    
-    cout<<endl;
-    test.push(1);
-    test.toString();
-    cout<<"Number of elements: "<<test.elementCounter<<endl;
-    cout<<"Capacity: "<<test.arrCapacity<<endl<<endl;
+    Matrix matrix2;
+    cout<<"Second matrix: "<<endl;
+    matrix2.printArray();
 
-    test.push(2);
-    test.toString();
-    cout<<"Number of elements: "<<test.elementCounter<<endl;
-    cout<<"Capacity: "<<test.arrCapacity<<endl<<endl;
+    Matrix result;
+    result = matrix1 * matrix2;
+    cout<<"First matrix multiplied by second matrix: "<<endl;
+    result.printArray();
 
-    test.push(3);
-    test.toString();
-    cout<<"Number of elements: "<<test.elementCounter<<endl;
-    cout<<"Capacity: "<<test.arrCapacity<<endl<<endl;
+    bool isEqual = matrix1 == matrix2;
 
-    test.push(4);
-    test.toString();
-    cout<<"Number of elements: "<<test.elementCounter<<endl;
-    cout<<"Capacity: "<<test.arrCapacity<<endl<<endl;
+    cout<<"Is the first Matrix equal to the second Matrix? "<<endl;
+    cout<<"0 is false, 1 is true: "<<endl;
+    cout<<"Result: "<<isEqual<<"\n"<<endl;
 
-    test.push(5);
-    test.toString();
-    cout<<"Number of elements: "<<test.elementCounter<<endl;
-    cout<<"Capacity: "<<test.arrCapacity<<endl<<endl;
+    Matrix test1(1);
+    cout<<"First test matrix: "<<endl;
+    test1.printArray();
 
-    // Erase the first element 
+    Matrix test2(1);
+    cout<<"Second test matrix: "<<endl;
+    test2.printArray();
 
-    cout<<"Deletion of first element: "<<endl;
+    result = test1 * test2;
+    cout<<"First matrix multiplied by second matrix: "<<endl;
+    result.printArray();
 
-    test.erase(1);
-    test.toString();
-    cout<<"Number of elements: "<<test.elementCounter<<endl;
-    cout<<"Capacity: "<<test.arrCapacity<<endl<<endl;
+    cout<<"Is the first Matrix equal to the second Matrix? "<<endl;
+    cout<<"0 is false, 1 is true: "<<endl;
+    bool isEqualTest = test1 == test2;
 
-    test.push(6);
-    test.toString();
-    cout<<"Number of elements: "<<test.elementCounter<<endl;
-    cout<<"Capacity: "<<test.arrCapacity<<endl<<endl;
-
-    // Erase the last element
-
-    cout<<"Deletion of last element: "<<endl;
-
-    test.erase(6);
-    test.toString();
-    cout<<"Number of elements: "<<test.elementCounter<<endl;
-    cout<<"Capacity: "<<test.arrCapacity<<endl<<endl;
-
-    test.push(6);
-    test.toString();
-    cout<<"Number of elements: "<<test.elementCounter<<endl;
-    cout<<"Capacity: "<<test.arrCapacity<<endl<<endl;
-
-    // Erase the middle element 
-
-    cout<<"Deletion of middle element: "<<endl;
-
-    test.erase(4);
-    test.toString();
-    cout<<"Number of elements: "<<test.elementCounter<<endl;
-    cout<<"Capacity: "<<test.arrCapacity<<endl<<endl;
-
-    test.push(7);
-    test.toString();
-    cout<<"Number of elements: "<<test.elementCounter<<endl;
-    cout<<"Capacity: "<<test.arrCapacity<<endl<<endl;
-
-    cout<<"Reduction in capacity from a larger capacity: "<<endl;
-
-    test.erase(7);
-    test.toString();
-    cout<<"Number of elements: "<<test.elementCounter<<endl;
-    cout<<"Capacity: "<<test.arrCapacity<<endl<<endl;
-
-    test.erase(6);
-    test.toString();
-    cout<<"Number of elements: "<<test.elementCounter<<endl;
-    cout<<"Capacity: "<<test.arrCapacity<<endl<<endl;
-
-    test.erase(5);
-    test.toString();
-    cout<<"Number of elements: "<<test.elementCounter<<endl;
-    cout<<"Capacity: "<<test.arrCapacity<<endl<<endl;
-
-    test.erase(3);
-    test.toString();
-    cout<<"Number of elements: "<<test.elementCounter<<endl;
-    cout<<"Capacity: "<<test.arrCapacity<<endl<<endl;
-
-    test.erase(2);
-    test.toString();
-    cout<<"Number of elements: "<<test.elementCounter<<endl;
-    cout<<"Capacity: "<<test.arrCapacity<<endl<<endl;
-    
-    test.push(1);
-    test.toString();
-    cout<<"Number of elements: "<<test.elementCounter<<endl;
-    cout<<"Capacity: "<<test.arrCapacity<<endl<<endl;
-
-    test.push(2);
-    test.toString();
-    cout<<"Number of elements: "<<test.elementCounter<<endl;
-    cout<<"Capacity: "<<test.arrCapacity<<endl<<endl;
-
-    test.push(3);
-    test.toString();
-    cout<<"Number of elements: "<<test.elementCounter<<endl;
-    cout<<"Capacity: "<<test.arrCapacity<<endl<<endl;
-
-    cout<<"Trying to erase an element not within the list: "<<endl;
-    test.erase(8);
-    cout<<endl;
-
-    
-    /*
-     Deallocate memory on heap for the array data member
-     of the ArrayList instance and resolve the dangling point
-    */
-    delete [] test.arr;
-    test.arr = nullptr;
+    cout<<"Result: "<<isEqualTest<<"\n"<<endl;
 
     return 0;
 }
